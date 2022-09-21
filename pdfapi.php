@@ -1,4 +1,6 @@
 <?php
+header('Content-type:application/json;charset=utf-8');
+
 $mydir = 'attachment';
 $myfiles = array_diff(scandir($mydir), array('.', '..'));
 //print_r($myfiles);
@@ -15,5 +17,5 @@ $url .= $_SERVER['REQUEST_URI'];
 foreach ($myfiles as $val) {
     $files['files'][] = str_replace("pdfapi.php", "attachment", $url . '/' . $val);
 }
-print_r($files);
-//echo json_encode($files);
+//print_r($files);
+echo json_encode($files);
