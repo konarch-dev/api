@@ -15,7 +15,13 @@ $url .= $_SERVER['HTTP_HOST'];
 $url .= $_SERVER['REQUEST_URI'];
 
 foreach ($myfiles as $val) {
-    $files['files'][] = str_replace("pdfapi.php", "attachment", $url . '/' . $val);
+    $filename = explode("/", $url . '/' . $val);
+    $filecount = count($filename);
+    //  $filename[$filecount-1];
+    $files['data'][] = [
+        'file' => str_replace("pdfapi.php", "attachment", $url . '/' . $val),
+        'name' => str_replace(".pdf", "", $filename[$filecount - 1])
+    ];
 }
 //print_r($files);
 echo json_encode($files);
