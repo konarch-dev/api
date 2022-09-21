@@ -18,7 +18,7 @@ foreach ($myfiles as $val) {
     $filename = explode("/", $url . '/' . $val);
     $filecount = count($filename);
     //  $filename[$filecount-1];
-    $files['data'][] = [
+    $files[] = [
         'file' => str_replace("pdfapi.php", "attachment", $url . '/' . $val),
         'name' => str_replace(".pdf", "", $filename[$filecount - 1])
     ];
